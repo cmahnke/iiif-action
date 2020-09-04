@@ -1,0 +1,21 @@
+{
+    "level": {
+        "compliance": "2"
+    },
+    "graphics": {
+        "source": {
+            "name": "native"
+        }
+    },
+    "images": {
+        "source": {
+            "name": "Blob",
+            "path": "file:///."
+        },
+        "cache": {
+            "name": "Memory",
+            "ttl": 300,
+            "limit": 100
+        }
+    }
+}
