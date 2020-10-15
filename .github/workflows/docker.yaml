@@ -15,7 +15,7 @@ jobs:
           submodules: true
           fetch-depth: 0
       - name: Push to GitHub Packages
-        uses: build-push-action@v2
+        uses: docker/build-push-action@v2
         env:
           DOCKER_BUILDKIT: 1
         with:
