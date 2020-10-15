@@ -9,7 +9,7 @@ ENV BUILD_DEPS="make autoconf automake gcc g++ musl-dev git lcms2-dev librsvg-de
     BUILD_CONTEXT=/mnt/build-context \
     BUILD_DIR=/tmp/build \
     GIT_URL="https://github.com/libvips/libvips.git" \
-    GIT_TAG="v8.10.1"
+    GIT_TAG="v8.10.2"
 
 RUN --mount=target=/mnt/build-context \
     apk --update upgrade && \
