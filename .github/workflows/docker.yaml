@@ -24,3 +24,15 @@ jobs:
           registry: docker.pkg.github.com
           repository: cmahnke/iiif-action/iiif-action
           tag_with_ref: true
+
+  test:
+    name: Test the build GitHub action
+    runs-on: ubuntu-latest
+    steps:
+        - name: Create IIIF derivates
+          uses: ./
+          with:
+            cmd: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
+        - name: List results
+          run: |
+          ls test

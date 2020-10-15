@@ -1,0 +1,11 @@
+name: 'IIIF Action'
+description: 'Creates IIIF derivates'
+inputs:
+  cmd:
+    description: 'The command to run'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.cmd }}
