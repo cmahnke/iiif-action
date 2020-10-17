@@ -13,7 +13,7 @@ jobs:
       uses: tvdias/github-tagger@v0.0.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: "snapshot"
+        tag: "latest"
 
 
   push_to_registry:
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create IIIF derivates
-        uses: cmahnke/iiif-action@snapshot
+        uses: cmahnke/iiif-action@latest
         with:
           cmd: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
       - name: List results

@@ -5,6 +5,8 @@ inputs:
     description: 'The command to run'
     required: true
 runs:
+  env:
+    DOCKER_BUILDKIT: 1
   using: 'docker'
   image: 'Dockerfile'
   args:
