@@ -27,10 +27,11 @@ jobs:
 
   test:
     name: Test the build GitHub action
+    needs: push_to_registry
     runs-on: ubuntu-latest
     steps:
       - name: Create IIIF derivates
-        uses: ./
+        uses: docker://cmahnke/iiif-action/iiif-action:main
         with:
           cmd: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
       - name: List results
