@@ -5,6 +5,17 @@ on:
       - main
 
 jobs:
+  tag-snapshot:
+    name: Add a tag to satisfy stupid action runner
+    runs-on: ubuntu-latest
+    steps:
+    - name: Tag commit
+      uses: tvdias/github-tagger@v0.0.1
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        tag: "snapshot"
+
+
   push_to_registry:
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
@@ -31,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create IIIF derivates
-        uses: cmahnke/iiif-action
+        uses: cmahnke/iiif-action@snapshot
         with:
           cmd: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
       - name: List results
