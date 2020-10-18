@@ -67,3 +67,4 @@ jobs:
       - name: List results
         run: |
           ls test
+          ls test/test
