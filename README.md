@@ -18,7 +18,7 @@ BUILDKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker build -t iiif-action .
 # Getting the image from GitHub
 
 ```
-docker pull docker.pkg.github.com/cmahnke/iiif-action/iiif-action:main
+docker pull ghcr.io/cmahnke/iiif-action:latest
 ```
 
 # Running locally
@@ -34,7 +34,7 @@ docker run -v `pwd`:`pwd` -it iiif-action sh -c "vips dzsave `pwd`/test/2010_02-
 ## Running using the image from GitHub
 
 ```
-docker run -v `pwd`:`pwd` -it docker.pkg.github.com/cmahnke/iiif-action/iiif-action:main sh -c "vips dzsave `pwd`/test/2010_02-March-April_Whaling_01.jpg `pwd`/test/  -t 512 --layout iiif --id '.'"
+docker run -v `pwd`:`pwd` -it ghcr.io/cmahnke/iiif-action:latest sh -c "vips dzsave `pwd`/test/2010_02-March-April_Whaling_01.jpg `pwd`/test/  -t 512 --layout iiif --id '.'"
 ```
 
 ## Resulting programs
