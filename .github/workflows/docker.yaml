@@ -41,8 +41,10 @@ jobs:
     needs: push_to_registry
     runs-on: ubuntu-latest
     steps:
-      - name: Login to GitHub Package Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
+      - name: Pull iamge
+        run: docker pull cmahnke/iiif-action/iiif-action:main
+#      - name: Login to GitHub Package Registry
+#        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
       - name: Create IIIF derivates
 #          container:
 #              image: cmahnke/iiif-action/iiif-action:main
