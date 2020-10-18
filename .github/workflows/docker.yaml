@@ -5,15 +5,15 @@ on:
       - main
 
 jobs:
-  tag-snapshot:
-    name: Add a tag to satisfy stupid action runner
-    runs-on: ubuntu-latest
-    steps:
-    - name: Tag commit
-      uses: tvdias/github-tagger@v0.0.1
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: "latest"
+#  tag-snapshot:
+#    name: Add a tag to satisfy stupid action runner
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Tag commit
+#      uses: tvdias/github-tagger@v0.0.1
+#      with:
+#        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+#        tag: "latest"
 
 
   push_to_registry:
@@ -41,6 +41,8 @@ jobs:
     needs: push_to_registry
     runs-on: ubuntu-latest
     steps:
+      - name: Login to GitHub Package Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
       - name: Create IIIF derivates
 #          container:
 #              image: cmahnke/iiif-action/iiif-action:main
