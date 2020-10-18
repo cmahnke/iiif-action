@@ -42,9 +42,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create IIIF derivates
-        uses: cmahnke/iiif-action@latest
+#          container:
+#              image: cmahnke/iiif-action/iiif-action:main
+#              credentials:
+#                 username: ${{ github.actor }}
+#                 password: ${{ secrets.GITHUB_TOKEN }}
+        uses: docker://cmahnke/iiif-action/iiif-action:main
+#        uses: cmahnke/iiif-action@latest
         with:
-          cmd: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
+          args: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
       - name: List results
         run: |
           ls test
