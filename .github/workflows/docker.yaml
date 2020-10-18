@@ -46,6 +46,11 @@ jobs:
     needs: push_to_registry
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v1
         with:
