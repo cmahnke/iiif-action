@@ -49,7 +49,7 @@ jobs:
 #              credentials:
 #                 username: ${{ github.actor }}
 #                 password: ${{ secrets.GITHUB_TOKEN }}
-        uses: docker://cmahnke/iiif-action/iiif-action:main
+        uses: docker://docker.pkg.github.com/cmahnke/iiif-action/iiif-action:main
 #        uses: cmahnke/iiif-action@latest
         with:
           args: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
