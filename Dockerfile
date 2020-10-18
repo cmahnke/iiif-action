@@ -15,7 +15,7 @@ ENV BUILD_DEPS="make autoconf libjpeg-turbo-dev automake gcc g++ musl-dev git lc
 
 RUN --mount=target=/mnt/build-context \
     apk --update upgrade && \
-    apk add --no-cache $RUN_DEPS $BUILD_DEPS && \
+    apk add --no-cache $RUN_DEPS bash $BUILD_DEPS && \
     mkdir -p $BUILD_DIR $CONF_DIR && \
 # Set configuration
     cp -r $BUILD_CONTEXT/entrypoint.sh / && \
