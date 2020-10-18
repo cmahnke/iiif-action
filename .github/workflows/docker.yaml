@@ -58,7 +58,7 @@ jobs:
 #        with:
 #          args: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
       - name: Create IIIF derivates
-        run: docker run -v ${PWD}:${PWD} -it ghcr.io/cmahnke/iiif-action:latest sh -c "vips dzsave ${PWD}/test/2010_02-March-April_Whaling_01.jpg ${PWD}/test/ -t 512 --layout iiif --id '.'"
+        run: docker run -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest sh -c "vips dzsave ${PWD}/test/2010_02-March-April_Whaling_01.jpg ${PWD}/test/ -t 512 --layout iiif --id '.'"
       - name: List results
         run: |
           ls test
