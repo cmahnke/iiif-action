@@ -11,7 +11,7 @@ ENV BUILD_DEPS="make autoconf libjpeg-turbo-dev automake gcc g++ musl-dev git lc
     BUILD_CONTEXT=/mnt/build-context \
     BUILD_DIR=/tmp/build \
     GIT_URL="https://github.com/libvips/libvips.git" \
-    GIT_TAG="v8.10.2"
+    GIT_TAG="v8.10.5"
 
 RUN --mount=target=/mnt/build-context \
     apk --update upgrade && \
