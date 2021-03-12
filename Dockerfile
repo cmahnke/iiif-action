@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:experimental
 
-FROM alpine:3.12
+FROM alpine:3.13
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
@@ -29,7 +29,8 @@ RUN --mount=target=/mnt/build-context \
     make install && \
 # Cleanup
     cd / && rm -rf $BUILD_DIR && \
-    apk del $BUILD_DEPS libjpeg
+    apk del $BUILD_DEPS libjpeg && \
+    rm -rf /var/cache/apk/*
 
 
 ENTRYPOINT ["/entrypoint.sh"]
