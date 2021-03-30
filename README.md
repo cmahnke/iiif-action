@@ -15,6 +15,12 @@ Building with complete output:
 BUILDKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker build -t iiif-action .
 ```
 
+Building with additional packages
+
+```
+DOCKER_BUILDKIT=1 docker build -t iiif-action --build-arg ADDITIONAL_DEPS="parallel rsync sshpass" .
+```
+
 # Getting the image from GitHub
 
 ```

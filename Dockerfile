@@ -2,6 +2,8 @@
 
 FROM alpine:3.13
 
+ARG ADDITIONAL_DEPS=""
+
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
 LABEL "com.github.actions.description"="This is a simple GitHub Action to generate IIIF deriavtes using libvips"
@@ -15,7 +17,7 @@ ENV BUILD_DEPS="make autoconf libjpeg-turbo-dev automake gcc g++ musl-dev git lc
 
 RUN --mount=target=/mnt/build-context \
     apk --update upgrade && \
-    apk add --no-cache $RUN_DEPS bash $BUILD_DEPS && \
+    apk add --no-cache $RUN_DEPS bash $BUILD_DEPS $ADDITIONAL_DEPS && \
     mkdir -p $BUILD_DIR $CONF_DIR && \
 # Set configuration
     cp -r $BUILD_CONTEXT/entrypoint.sh / && \
