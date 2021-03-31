@@ -42,7 +42,7 @@ jobs:
             ghcr.io/cmahnke/iiif-action:latest
 
   build_uploader:
-    name: Push Docker image to GitHub Packages
+    name: Push uploader Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -62,7 +62,7 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
-          build-args: ADDITIONAL_DEPS=parallel rsync sshpass
+          build-args: ADDITIONAL_DEPS=parallel rsync sshpass imagemagick
           push: true
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-uploader
