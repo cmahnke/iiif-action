@@ -91,9 +91,7 @@ jobs:
           build-args: GIT_TAG=add-jxl
           push: true
           tags: |
-            ghcr.io/cmahnke/iiif-action:latest-uploader
-
-
+            ghcr.io/cmahnke/iiif-action:latest-jxl
 
   test:
     name: Test the build Docker image
