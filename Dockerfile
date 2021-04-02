@@ -3,6 +3,7 @@
 FROM alpine:3.13
 
 ARG ADDITIONAL_DEPS=""
+ARG GIT_TAG="v8.10.5"
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
@@ -12,8 +13,7 @@ ENV BUILD_DEPS="make autoconf libjpeg-turbo-dev automake gcc g++ musl-dev git lc
     RUN_DEPS="tiff libpng libjpeg-turbo libgsf libexif libwebp orc pango librsvg lcms2 glib gettext imagemagick poppler-glib" \
     BUILD_CONTEXT=/mnt/build-context \
     BUILD_DIR=/tmp/build \
-    GIT_URL="https://github.com/libvips/libvips.git" \
-    GIT_TAG="v8.10.5"
+    GIT_URL="https://github.com/libvips/libvips.git"
 
 RUN --mount=target=/mnt/build-context \
     apk --update upgrade && \
