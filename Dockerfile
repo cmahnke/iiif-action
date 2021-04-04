@@ -18,7 +18,7 @@ ENV BUILD_DEPS="make autoconf libjpeg-turbo-dev automake gcc g++ musl-dev git lc
 RUN --mount=target=/mnt/build-context \
     apk --update upgrade && \
     apk add --no-cache $RUN_DEPS bash $BUILD_DEPS $ADDITIONAL_DEPS && \
-    mkdir -p $BUILD_DIR $CONF_DIR && \
+    mkdir -p $BUILD_DIR && \
 # Set configuration
     cp -r $BUILD_CONTEXT/entrypoint.sh / && \
 # Get source and compile
@@ -26,6 +26,7 @@ RUN --mount=target=/mnt/build-context \
     git clone $GIT_URL && \
     cd libvips && \
     git checkout $GIT_TAG && \
+    export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:${PKG_CONFIG_PATH}"
     ./autogen.sh && \
     make -j 5 && \
     make install && \
