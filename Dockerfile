@@ -26,7 +26,7 @@ RUN --mount=target=/mnt/build-context \
     git clone $GIT_URL && \
     cd libvips && \
     git checkout $GIT_TAG && \
-    export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:${PKG_CONFIG_PATH}"
+    export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:${PKG_CONFIG_PATH}" && \
     ./autogen.sh && \
     make -j 5 && \
     make install && \
