@@ -11,7 +11,7 @@ LABEL "com.github.actions.description"="This is a simple GitHub Action to genera
 LABEL org.opencontainers.image.source https://github.com/cmahnke/iiif-action
 
 ENV BUILD_DEPS="make autoconf libjpeg-turbo-dev automake gcc g++ musl-dev git lcms2-dev librsvg-dev libexif-dev libwebp-dev orc-dev pango-dev libgsf-dev libpng-dev glib-dev gtk-doc libtool imagemagick-dev gobject-introspection-dev poppler-dev libheif-dev openjpeg-dev openexr-dev" \
-    RUN_DEPS="tiff libpng libjpeg-turbo libgsf libexif libwebp orc pango librsvg lcms2 gettext imagemagick poppler libheif openjpeg openexr" \
+    RUN_DEPS="tiff libpng libjpeg-turbo libgsf libexif libwebp orc pango librsvg lcms2 gettext imagemagick poppler-glib libheif openjpeg openexr" \
     BUILD_CONTEXT=/mnt/build-context \
     BUILD_DIR=/tmp/build \
     GIT_URL="https://github.com/libvips/libvips.git"
