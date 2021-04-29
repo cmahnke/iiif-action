@@ -98,7 +98,7 @@ jobs:
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl
 
-  build_jxl:
+  build_jxl_uploader:
     name: Push JPEG XL Uploader Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
