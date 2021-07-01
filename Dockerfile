@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:experimental
 
-FROM alpine:3.14.0
+FROM alpine:3.14
 
 ARG ADDITIONAL_DEPS=""
-ARG GIT_TAG="v8.10.6"
+ARG GIT_TAG="v8.11.1"
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
