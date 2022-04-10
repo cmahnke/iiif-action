@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:experimental
 
-FROM alpine:3.15.3
+FROM alpine:3.15.4
 
 ARG ADDITIONAL_DEPS=""
 ARG GIT_TAG="v8.11.1"
