@@ -171,8 +171,8 @@ jobs:
           ls test
           ls test/test
 
-    test-jxl:
-      name: Test if VIPS was build with JXL support
+  test-jxl:
+    name: Test if VIPS was build with JXL support
     needs: build_jxl
     runs-on: ubuntu-latest
     steps:
