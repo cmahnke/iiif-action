@@ -35,7 +35,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2.2.0
+        uses: docker/setup-buildx-action@v2.2.1
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v3.2.0
         with:
@@ -63,7 +63,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2.2.0
+        uses: docker/setup-buildx-action@v2.2.1
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v3.2.0
         with:
@@ -92,7 +92,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2.2.0
+        uses: docker/setup-buildx-action@v2.2.1
       - name: Change base image
         run: |
           sed -i -e 's/alpine:3.16/ghcr.io\/cmahnke\/jpeg-xl-action:latest/g' Dockerfile
@@ -126,7 +126,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2.2.0
+        uses: docker/setup-buildx-action@v2.2.1
       - name: Change base image
         run: |
           sed -i -e 's/alpine:3.16/ghcr.io\/cmahnke\/jpeg-xl-action:latest/g' Dockerfile
