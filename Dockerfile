@@ -3,7 +3,7 @@
 FROM alpine:3.17
 
 ARG ADDITIONAL_DEPS=""
-ARG GIT_TAG="v8.13.2"
+ARG GIT_TAG="v8.13.3"
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
@@ -36,9 +36,8 @@ RUN --mount=target=/mnt/build-context \
     cp -r $BUILD_CONTEXT/entrypoint.sh / && \
 # Get source and compile
     cd $BUILD_DIR && \
-    git clone $GIT_URL && \
+    git clone --depth 1 --branch $GIT_TAG $GIT_URL && \
     cd libvips && \
-    git checkout $GIT_TAG && \
     export CC=clang CXX=clang++ && \
     meson build --buildtype=release --prefix=/usr && \
     cd build && \
