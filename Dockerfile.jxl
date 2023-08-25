@@ -3,7 +3,7 @@
 FROM ghcr.io/cmahnke/jpeg-xl-action:latest
 
 ARG ADDITIONAL_DEPS=""
-ARG GIT_TAG="v8.14.3"
+ARG GIT_TAG="v8.14.4"
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
@@ -28,6 +28,7 @@ RUN --mount=target=/mnt/build-context \
     cd $BUILD_DIR && \
     git clone $GIT_URL && \
     cd libvips && \
+    git config --global advice.detachedHead false && \
     git checkout $GIT_TAG && \
     export CC=clang CXX=clang++ && \
     meson build --buildtype=release --prefix=/usr && \
