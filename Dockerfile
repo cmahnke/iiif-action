@@ -3,7 +3,7 @@
 FROM alpine:3.18
 
 ARG ADDITIONAL_DEPS=""
-ARG GIT_TAG="v8.14.5"
+ARG GIT_TAG="v8.15.0"
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
