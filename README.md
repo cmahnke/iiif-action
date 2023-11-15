@@ -18,7 +18,7 @@ BUILDKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker build -t iiif-action .
 Building with additional packages
 
 ```
-DOCKER_BUILDKIT=1 docker build -t iiif-action --build-arg ADDITIONAL_DEPS="parallel rsync sshpass" .
+DOCKER_BUILDKIT=1 docker build -t ghcr.io/cmahnke/iiif-action:latest-jxl-uploader --build-arg ADDITIONAL_DEPS="parallel rsync sshpass" .
 ```
 
 # Getting the image from GitHub
