@@ -34,6 +34,8 @@ RUN --mount=target=/mnt/build-context \
     mkdir -p $BUILD_DIR && \
 # Set configuration
     cp -r $BUILD_CONTEXT/entrypoint.sh / && \
+# Add Docker stub
+    cp -r $BUILD_CONTEXT/scripts/docker /usr/local/bin && \
 # Get source and compile
     cd $BUILD_DIR && \
     git config --global advice.detachedHead false && \

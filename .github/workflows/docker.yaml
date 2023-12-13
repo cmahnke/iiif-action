@@ -135,7 +135,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.0.0
       - name: Change base image
         run: |
-          sed -i -e 's/alpine:3.18/ghcr.io\/cmahnke\/jpeg-xl-action:latest/g' Dockerfile
+          sed -i -e 's/alpine:3.19/ghcr.io\/cmahnke\/jpeg-xl-action:latest/g' Dockerfile
           cat Dockerfile
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v5.1.0
@@ -171,7 +171,7 @@ jobs:
 #        with:
 #          args: 'vips dzsave test/2010_02-March-April_Whaling_01.jpg test/  -t 512 --layout iiif --id ''.'''
       - name: Create IIIF derivates
-        run: docker run -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest sh -c "vips dzsave ${PWD}/test/2010_02-March-April_Whaling_01.jpg ${PWD}/test/ -t 512 --layout iiif --id '.'"
+        run: docker run -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest sh -c "vips dzsave ${PWD}/test/2010_02-March-April_Whaling_01.jpg ${PWD}/test/ --tile-size=512 --layout iiif --id '.'"
       - name: List results
         run: |
           ls test
