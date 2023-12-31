@@ -116,8 +116,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl
-            ghcr.io/cmahnke/iiif-action:jxl-${{ env.VIPS_VERSION }}
-            ghcr.io/cmahnke/iiif-action:jxl-latest
+            ghcr.io/cmahnke/iiif-action:${{ env.VIPS_VERSION }}-jxl
 
   build_jxl_uploader:
     name: Push JPEG XL Uploader Docker image to GitHub Packages
@@ -156,8 +155,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
-            ghcr.io/cmahnke/iiif-action:jxl-uploader-${{ env.VIPS_VERSION }}
-            ghcr.io/cmahnke/iiif-action:jxl-uploader-latest
+            ghcr.io/cmahnke/iiif-action:${{ env.VIPS_VERSION }}-jxl-uploader
 
   test:
     name: Test the build Docker image
