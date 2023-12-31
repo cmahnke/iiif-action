@@ -7,6 +7,9 @@ on:
   schedule:
     - cron:  '0 3 * * *'
 
+env:
+  VIPS_VERSION=v8.15.0
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
