@@ -111,12 +111,12 @@ jobs:
         uses: docker/build-push-action@v5.1.0
         with:
           context: .
-          build-args: GIT_TAG=$VIPS_VERSION
+          build-args: GIT_TAG=${{ env.VIPS_VERSION }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl
-            ghcr.io/cmahnke/iiif-action:jxl-$VIPS_VERSION
+            ghcr.io/cmahnke/iiif-action:jxl-${{ env.VIPS_VERSION }}
 
   build_jxl_uploader:
     name: Push JPEG XL Uploader Docker image to GitHub Packages
