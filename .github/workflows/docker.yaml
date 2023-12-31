@@ -117,10 +117,13 @@ jobs:
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl
             ghcr.io/cmahnke/iiif-action:jxl-${{ env.VIPS_VERSION }}
+            ghcr.io/cmahnke/iiif-action:jxl-latest
 
   build_jxl_uploader:
     name: Push JPEG XL Uploader Docker image to GitHub Packages
     runs-on: ubuntu-latest
+    env:
+      VIPS_VERSION: v8.14.3
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -147,12 +150,14 @@ jobs:
         with:
           context: .
           build-args: |
-            GIT_TAG=v8.14.3
+            GIT_TAG=${{ env.VIPS_VERSION }}
             ADDITIONAL_DEPS=parallel rsync sshpass bash findutils
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
+            ghcr.io/cmahnke/iiif-action:jxl-uploader-${{ env.VIPS_VERSION }}
+            ghcr.io/cmahnke/iiif-action:jxl-uploader-latest
 
   test:
     name: Test the build Docker image
