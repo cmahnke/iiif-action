@@ -1,3 +1,5 @@
 #!/bin/sh
 
 echo "running from ghcr.io/cmahnke/iiif-action, there should be no need to use the docker container"
+
+exit 1
