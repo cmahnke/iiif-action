@@ -9,6 +9,8 @@ on:
 
 env:
   VIPS_VERSION: v8.15.1
+  LIBJXL_VERSION: latest
+#  LIBJXL_VERSION: v0.9.0
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -105,7 +107,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.0.0
       - name: Change base image
         run: |
-          sed -i -e 's/alpine:3.19/ghcr.io\/cmahnke\/jpeg-xl-action:latest/g' Dockerfile
+          sed -i -e 's/alpine:3.19/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
           cat Dockerfile
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v5.1.0
@@ -117,6 +119,7 @@ jobs:
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl
             ghcr.io/cmahnke/iiif-action:${{ env.VIPS_VERSION }}-jxl
+            ghcr.io/cmahnke/iiif-action:${{ env.VIPS_VERSION }}-jxl-${{ env.LIBJXL_VERSION }}
 
   build_jxl_uploader:
     name: Push JPEG XL Uploader Docker image to GitHub Packages
@@ -140,7 +143,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.0.0
       - name: Change base image
         run: |
-          sed -i -e 's/alpine:3.19/ghcr.io\/cmahnke\/jpeg-xl-action:latest/g' Dockerfile
+          sed -i -e 's/alpine:3.19/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
           cat Dockerfile
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v5.1.0
@@ -154,6 +157,7 @@ jobs:
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
             ghcr.io/cmahnke/iiif-action:${{ env.VIPS_VERSION }}-jxl-uploader
+            ghcr.io/cmahnke/iiif-action:${{ env.VIPS_VERSION }}-jxl-${{ env.LIBJXL_VERSION }}-uploader
 
   test:
     name: Test the build Docker image

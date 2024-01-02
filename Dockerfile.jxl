@@ -1,9 +1,10 @@
 # syntax=docker/dockerfile:experimental
 
-FROM ghcr.io/cmahnke/jpeg-xl-action:latest
-
 ARG ADDITIONAL_DEPS=""
-ARG GIT_TAG="v8.14.5"
+ARG GIT_TAG="v8.15.1"
+ARG LIBJXL_VERSION="latest"
+
+FROM ghcr.io/cmahnke/jpeg-xl-action:${LIBJXL_VERSION}
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
