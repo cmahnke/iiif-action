@@ -8,7 +8,7 @@ on:
     - cron:  '0 3 * * *'
 
 env:
-  VIPS_VERSION: v8.15.0
+  VIPS_VERSION: v8.15.1
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -121,8 +121,6 @@ jobs:
   build_jxl_uploader:
     name: Push JPEG XL Uploader Docker image to GitHub Packages
     runs-on: ubuntu-latest
-    env:
-      VIPS_VERSION: v8.14.3
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
