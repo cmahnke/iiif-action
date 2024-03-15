@@ -47,7 +47,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.1.0
+        uses: docker/setup-buildx-action@v3.2.0
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v5.3.0
         with:
@@ -75,7 +75,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.1.0
+        uses: docker/setup-buildx-action@v3.2.0
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v5.3.0
         with:
@@ -104,7 +104,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.1.0
+        uses: docker/setup-buildx-action@v3.2.0
       - name: Change base image
         run: |
           sed -i -e 's/alpine:3.19/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
@@ -140,7 +140,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.1.0
+        uses: docker/setup-buildx-action@v3.2.0
       - name: Change base image
         run: |
           sed -i -e 's/alpine:3.19/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
