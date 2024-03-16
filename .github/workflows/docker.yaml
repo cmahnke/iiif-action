@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron:  '0 3 * * *'
+  pull_request:
 
 env:
   VIPS_VERSION: v8.15.1
