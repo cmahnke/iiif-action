@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  VIPS_VERSION: v8.15.1
+  VIPS_VERSION: v8.15.2
   LIBJXL_VERSION: latest
 #  LIBJXL_VERSION: v0.10.2
 
