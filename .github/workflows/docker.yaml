@@ -11,7 +11,7 @@ on:
 env:
   VIPS_VERSION: v8.15.2
   LIBJXL_VERSION: latest
-#  LIBJXL_VERSION: v0.10.2
+#  LIBJXL_VERSION: v0.10.3
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
