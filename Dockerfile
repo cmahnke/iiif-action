@@ -3,7 +3,7 @@
 FROM alpine:3.20
 
 ARG ADDITIONAL_DEPS=""
-ARG GIT_TAG="v8.15.2"
+ARG GIT_TAG="v8.15.3"
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions IIIF Generator"
@@ -42,7 +42,7 @@ RUN --mount=target=/mnt/build-context \
     git clone --depth 1 --branch $GIT_TAG $GIT_URL && \
     cd libvips && \
     export CC=clang CXX=clang++ && \
-    meson build --buildtype=release --prefix=/usr && \
+    meson build -Dorc=disabled --buildtype=release --prefix=/usr && \
     cd build && \
     meson compile && \
     meson install && \
