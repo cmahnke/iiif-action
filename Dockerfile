@@ -12,9 +12,9 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/iiif-action
 
 ENV BUILD_DEPS="make autoconf meson libjpeg-turbo-dev clang-dev g++ musl-dev git lcms2-dev librsvg-dev libexif-dev libwebp-dev \
                 orc-dev pango-dev libgsf-dev libpng-dev glib-dev gtk-doc libtool imagemagick-dev gobject-introspection-dev \
-                poppler-dev libheif-dev openjpeg-dev cgif-dev libimagequant-dev cfitsio-dev openexr-dev libarchive-dev" \
+                poppler-dev libheif-dev openjpeg-dev cgif-dev libimagequant-dev cfitsio-dev openexr-dev libarchive-dev brotli-dev perl-app-cpanminus cmake perl-alien-build perl-dev" \
     RUN_DEPS="tiff libpng libwebp giflib libavif libjpeg-turbo brotli-libs libstdc++ libatomic libgsf libexif orc pango \
-              librsvg lcms2 gettext imagemagick poppler-glib libheif openjpeg cgif libimagequant cfitsio openexr-libopenexr libarchive" \
+              librsvg lcms2 gettext imagemagick poppler-glib libheif openjpeg cgif libimagequant cfitsio openexr-libopenexr libarchive exiftool" \
     BUILD_CONTEXT=/mnt/build-context \
     BUILD_DIR=/tmp/build \
     GIT_URL="https://github.com/libvips/libvips.git"
@@ -36,6 +36,8 @@ RUN --mount=target=/mnt/build-context \
     cp -r $BUILD_CONTEXT/entrypoint.sh / && \
 # Add Docker stub
     cp -r $BUILD_CONTEXT/scripts/docker /usr/local/bin && \
+# Get Brotli from CPAN
+    cpanm IO::Uncompress::Brotli -n && \
 # Get source and compile
     cd $BUILD_DIR && \
     git config --global advice.detachedHead false && \
