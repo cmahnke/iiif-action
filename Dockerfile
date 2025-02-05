@@ -17,7 +17,8 @@ ENV BUILD_DEPS="make autoconf meson libjpeg-turbo-dev clang-dev g++ musl-dev git
               librsvg lcms2 gettext imagemagick poppler-glib libheif openjpeg cgif libimagequant cfitsio openexr-libopenexr libarchive exiftool" \
     BUILD_CONTEXT=/mnt/build-context \
     BUILD_DIR=/tmp/build \
-    GIT_URL="https://github.com/libvips/libvips.git"
+    GIT_URL="https://github.com/libvips/libvips.git" \
+    LINKTYPE=static
 
 RUN --mount=target=/mnt/build-context \
 # Check if JXL is already present
