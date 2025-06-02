@@ -108,7 +108,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.10.0
       - name: Change base image
         run: |
-          sed -i -e 's/alpine:3.21/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
+          sed -i -e 's/alpine:3.22/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
           cat Dockerfile
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v6.18.0
@@ -144,7 +144,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.10.0
       - name: Change base image
         run: |
-          sed -i -e 's/alpine:3.21/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
+          sed -i -e 's/alpine:3.22/ghcr.io\/cmahnke\/jpeg-xl-action:${{ env.LIBJXL_VERSION }}/g' Dockerfile
           cat Dockerfile
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v6.18.0
