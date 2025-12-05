@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:experimental
 
-FROM alpine:3.22
+FROM alpine:3.23
 
 ARG ADDITIONAL_DEPS=""
 #ARG GIT_TAG="v8.17.2"
@@ -13,7 +13,7 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/iiif-action
 
 ENV BUILD_DEPS="make autoconf meson libjpeg-turbo-dev clang-dev g++ musl-dev git lcms2-dev librsvg-dev libexif-dev libwebp-dev \
                 orc-dev pango-dev libgsf-dev libpng-dev glib-dev gtk-doc libtool imagemagick-dev gobject-introspection-dev \
-                poppler-dev libheif-dev openjpeg-dev cgif-dev libimagequant-dev cfitsio-dev openexr-dev libarchive-dev brotli-dev perl-app-cpanminus cmake perl-alien-build perl-dev brotli-dev" \
+                poppler-dev libheif-dev openjpeg-dev cgif-dev libimagequant-dev cfitsio-dev openexr-dev libarchive-dev brotli-dev perl-app-cpanminus cmake perl-alien-build perl-dev perl-net-ssleay brotli-dev" \
     RUN_DEPS="tiff libpng libwebp giflib libavif libjpeg-turbo brotli-libs libstdc++ libatomic libgsf libexif orc pango \
               librsvg lcms2 gettext imagemagick poppler-glib libheif openjpeg cgif libimagequant cfitsio openexr-libopenexr libarchive exiftool" \
     BUILD_CONTEXT=/mnt/build-context \
