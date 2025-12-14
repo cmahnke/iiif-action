@@ -17,3 +17,5 @@ updates:
       docker:
         patterns:
         - '*'
+    ignore:
+      - dependency-name: "alpine"
