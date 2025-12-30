@@ -1,9 +1,7 @@
-# syntax=docker/dockerfile:experimental
-
 FROM alpine:3.22
 
 ARG ADDITIONAL_DEPS=""
-#ARG GIT_TAG="v8.17.2"
+#ARG GIT_TAG="v8.18.0"
 ARG GIT_TAG="v8.16.1"
 
 LABEL maintainer="cmahnke@gmail.com"

@@ -9,9 +9,9 @@ on:
   pull_request:
 
 env:
-  VIPS_VERSION: v8.17.1
-  LIBJXL_VERSION: latest
-#  LIBJXL_VERSION: v0.10.3
+  VIPS_VERSION: v8.18.0
+#  LIBJXL_VERSION: latest
+  LIBJXL_VERSION: v0.11.1
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -53,7 +53,7 @@ jobs:
         uses: docker/build-push-action@v6.18.0
         with:
           push: true
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/cmahnke/iiif-action:latest
 
@@ -82,7 +82,7 @@ jobs:
         with:
           build-args: ADDITIONAL_DEPS=parallel rsync sshpass bash findutils
           push: true
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-uploader
 
@@ -115,7 +115,7 @@ jobs:
         with:
           context: .
           build-args: GIT_TAG=${{ env.VIPS_VERSION }}
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl
@@ -153,7 +153,7 @@ jobs:
           build-args: |
             GIT_TAG=${{ env.VIPS_VERSION }}
             ADDITIONAL_DEPS=parallel rsync sshpass bash findutils
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
