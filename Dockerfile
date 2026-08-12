@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.24
 
 ARG ADDITIONAL_DEPS=""
 #ARG GIT_TAG="v8.18.0"
