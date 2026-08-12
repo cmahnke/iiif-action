@@ -37,6 +37,7 @@ RUN --mount=target=/mnt/build-context \
 # Add Docker stub
     cp -r $BUILD_CONTEXT/scripts/docker /usr/local/bin && \
 # Get Brotli from CPAN
+    cpanm Alien::cmake3 && \
     cpanm IO::Uncompress::Brotli -v -n && \
 # Get source and compile
     cd $BUILD_DIR && \
